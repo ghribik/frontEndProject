@@ -1,0 +1,57 @@
+body {
+    background-image: url('sky-1407164.jpg');
+}
+
+h1 {
+    color: white; 
+    background-color: black;
+}
+
+h5 {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+p {
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+img {
+    max-height: 700px;
+}
+
+form {
+    padding-bottom: 2%;
+}
+
+.mb-3 {
+    width: 500px;
+}
+
+div[class='input-group input-group-sm mb-3']{
+    max-width: 500px;
+}
+
+.carousel-inner {
+    max-width: 500px;
+}
+
+#carouselExampleCaptions {
+    max-width: 500px; 
+    border:black; 
+    border-style: outset; 
+    background-color: #000;
+}
+
+#submitKey {
+    max-height: 40px;
+    max-width: 80px;
+    background-color: red;
+    border-color: black;
+}
+
+#cityInput {
+    max-height: 40px;
+    max-width: 200px;
+}
