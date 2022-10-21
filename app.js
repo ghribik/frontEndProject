@@ -94,6 +94,6 @@ function twoDecimals(num){
   return Number(num).toFixed(2);
 }
 
-function newTab() {
-  window.open("https://www.weatherstack.com", "_blank");
+function newTab(url) {
+  window.open(url, "_blank");
 }
