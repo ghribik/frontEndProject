@@ -9,10 +9,10 @@ function getWeather(){
 
   const $city = $("#cityInput").val();
   const $key = $("#inputKey").val();
-  userInput = "http://api.weatherstack.com/forecast?access_key=" + $key + "&query=" + $city;
+  userInput = "https://cors-anywhere.herokuapp.com/http://api.weatherstack.com/forecast?access_key=" + $key + "&query=" + $city;
 
   $.get(userInput, (data) => {
-    //console.log(data) //--> Test to see how the data is formatted
+    console.log(data) //--> Test to see how the data is formatted
 
     let $citySubstring = $(`<strong> ${data.location.name}, ${data.location.region}, ${data.location.country}
      <br> Lat: ${data.location.lat} and Long: ${data.location.lon}</strong>`);
