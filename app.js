@@ -22,19 +22,26 @@ function getWeather(){
     $("#currentWeather").append($description);
     $("#currentWeather").append(`<strong><img src="${data.current.weather_icons[0]}"></strong>`);
 
+    const date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let currentDate = `${year}-${month}-${day}`;
+    //console.log(currentDate); //--> Test to see how the date is formatted
+
     let fTemp = cToF(data.current.temperature);
     let roundedFTemp = twoDecimals(fTemp);
-    let fTempMax = cToF(data.forecast["2022-10-19"].maxtemp);
+    let fTempMax = cToF(data.forecast[currentDate].maxtemp);
     let roundedFTempMax = twoDecimals(fTempMax);
-    let fTempMin = cToF(data.forecast["2022-10-19"].mintemp);
+    let fTempMin = cToF(data.forecast[currentDate].mintemp);
     let roundedFTempMin = twoDecimals(fTempMin);
-    let fTempAvg = cToF(data.forecast["2022-10-19"].avgtemp);
+    let fTempAvg = cToF(data.forecast[currentDate].avgtemp);
     let roundedFTempAvg = twoDecimals(fTempAvg);
 
     let $temperature = $(`<strong> <br> Current: ${data.current.temperature}°C --> ${roundedFTemp}°F <br>
-    Max: ${data.forecast["2022-10-19"].maxtemp}°C --> ${roundedFTempMax}°F <br>
-    Min: ${data.forecast["2022-10-19"].mintemp}°C --> ${roundedFTempMin}°F <br>
-    Avg: ${data.forecast["2022-10-19"].avgtemp}°C --> ${roundedFTempAvg}°F </strong>`);
+    Max: ${data.forecast[currentDate].maxtemp}°C --> ${roundedFTempMax}°F <br>
+    Min: ${data.forecast[currentDate].mintemp}°C --> ${roundedFTempMin}°F <br>
+    Avg: ${data.forecast[currentDate].avgtemp}°C --> ${roundedFTempAvg}°F </strong>`);
     $("#currentTemperature").append($temperature);
 
     let mph = kphToMph(data.current.wind_speed);
@@ -51,12 +58,14 @@ function getWeather(){
     let $precip = $(`<strong> ${data.current.precip} mm --> ${roundedPrecipInches} in </strong>`);
     $("#currentPrecip").append($precip);
 
-    let $sun = $(`<strong> ${data.forecast["2022-10-19"].astro.sunrise} sunrise <br> ${data.forecast["2022-10-19"].astro.sunset} sunset
-    <br> ${data.forecast["2022-10-19"].sunhour} hours of sunlight! </strong>`);
+    let $sun = $(`<strong> ${data.forecast[currentDate].astro.sunrise} sunrise <br> 
+    ${data.forecast[currentDate].astro.sunset} sunset <br> 
+    ${data.forecast[currentDate].sunhour} hours of sunlight! </strong>`);
     $("#currentSun").append($sun);
 
-    let $moon = $(`<strong> ${data.forecast["2022-10-19"].astro.moonrise} moonrise <br> ${data.forecast["2022-10-19"].astro.moonset} moonset
-    <br> moon phase is ${data.forecast["2022-10-19"].astro.moon_phase} </strong>`);
+    let $moon = $(`<strong> ${data.forecast[currentDate].astro.moonrise} moonrise <br>
+    ${data.forecast[currentDate].astro.moonset} moonset <br> 
+    moon phase is ${data.forecast[currentDate].astro.moon_phase} </strong>`);
     $("#currentMoon").append($moon);
 
     setTimeout(() =>{
